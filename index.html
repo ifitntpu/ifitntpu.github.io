@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- 1. viewport 設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IFIT Lab - Intelligent Financial Innovation Technology Laboratory, National Taipei University</title>
   <style>
@@ -35,7 +34,7 @@
       padding: 0 15px;
     }
     
-    
+
     header {
       background-color: var(--primary-color);
       color: white;
@@ -49,35 +48,13 @@
     
     .header-content {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; 
       align-items: center;
     }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo h1 {
-      font-size: 1.5rem;
-      margin-left: 10px;
-    }
-    
-    .logo-img {
-      height: 50px;
-      width: 50px;
-      background-color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-    
+
    
     .menu-toggle {
-      display: none; 
+      display: none;  
       cursor: pointer;
       flex-direction: column;
       justify-content: space-around;
@@ -92,15 +69,35 @@
       transition: all 0.3s ease;
     }
     
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo h1 {
+      font-size: 1.5rem;
+      margin-left: 10px;
+    }
+    .logo-img {
+      height: 50px;
+      width: 50px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+
     nav ul {
       display: flex;
       list-style: none;
     }
-    
     nav ul li {
       margin-left: 20px;
     }
-    
     nav ul li a {
       color: white;
       text-decoration: none;
@@ -109,7 +106,6 @@
       border-radius: 3px;
       transition: background-color 0.3s;
     }
-    
     nav ul li a:hover {
       background-color: rgba(255,255,255,0.1);
     }
@@ -126,21 +122,17 @@
       color: white;
       margin-top: 70px;
     }
-    
     .hero-content {
       max-width: 800px;
     }
-    
     .hero h2 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-    
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-    
     .btn {
       display: inline-block;
       background-color: var(--accent-color);
@@ -151,7 +143,6 @@
       font-weight: bold;
       transition: background-color 0.3s;
     }
-    
     .btn:hover {
       background-color: #d68a00;
     }
@@ -160,7 +151,6 @@
     section {
       padding: 4rem 0;
     }
-    
     section h2 {
       text-align: center;
       margin-bottom: 2rem;
@@ -172,7 +162,6 @@
       align-items: center;
       gap: 2rem;
     }
-    
     .about-img {
       width: 600px;
       height: 400px;
@@ -182,13 +171,11 @@
       justify-content: center;
       background-color: #f5f5f5;
     }
-    
     .about-img img {
       width: 100%;
       height: auto;
       display: block;
     }
-    
     .about-text {
       flex: 1;
     }
@@ -199,7 +186,6 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    
     .research-card {
       background-color: white;
       border-radius: 5px;
@@ -207,16 +193,13 @@
       padding: 1.5rem;
       transition: transform 0.3s;
     }
-    
     .research-card:hover {
       transform: translateY(-5px);
     }
-    
     .research-card h3 {
       color: var(--secondary-color);
       margin-bottom: 1rem;
     }
-    
     .research-icon {
       font-size: 2rem;
       color: var(--accent-color);
@@ -229,7 +212,6 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    
     .member-card {
       background-color: white;
       border-radius: 5px;
@@ -237,11 +219,9 @@
       overflow: hidden;
       transition: transform 0.3s;
     }
-    
     .member-card:hover {
       transform: translateY(-5px);
     }
-    
     .member-img {
       width: 300px;
       height: 300px;
@@ -251,23 +231,19 @@
       justify-content: center;
       background-color: #f5f5f5;
     }
-    
     .member-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
     }
-    
     .member-info {
       padding: 1.5rem;
     }
-    
     .member-info h3 {
       color: var(--primary-color);
       margin-bottom: 0.5rem;
     }
-    
     .member-info p {
       color: var(--secondary-color);
       font-weight: 500;
@@ -280,30 +256,25 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       padding: 2rem;
     }
-    
     .publication-item {
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid #e9ecef;
     }
-    
     .publication-item:last-child {
       margin-bottom: 0;
       padding-bottom: 0;
       border-bottom: none;
     }
-    
     .publication-title {
       font-weight: bold;
       color: var(--primary-color);
       margin-bottom: 0.5rem;
     }
-    
     .publication-authors {
       font-style: italic;
       margin-bottom: 0.5rem;
     }
-    
     .publication-venue {
       color: var(--secondary-color);
       font-weight: 500;
@@ -314,21 +285,18 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
-    
     .contact-card {
       background-color: white;
       border-radius: 5px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       padding: 1.5rem;
     }
-    
     .contact-card h3 {
       color: var(--primary-color);
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
     }
-    
     .contact-icon {
       margin-right: 10px;
       color: var(--accent-color);
@@ -340,18 +308,15 @@
       padding: 2rem 0;
       text-align: center;
     }
-    
     .footer-content {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    
     .social-links {
       display: flex;
       margin: 1rem 0;
     }
-    
     .social-links a {
       display: flex;
       align-items: center;
@@ -364,7 +329,6 @@
       margin: 0 10px;
       transition: background-color 0.3s;
     }
-    
     .social-links a:hover {
       background-color: var(--accent-color);
     }
@@ -385,30 +349,23 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
-    
     .scroll-to-top.show {
       opacity: 1;
     }
-    
     .scroll-to-top:hover {
       background-color: var(--secondary-color);
     }
     
-   
+    /* ---------------- Media Queries ---------------- */
     @media (max-width: 768px) {
-      .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-    
+ 
       .menu-toggle {
         display: flex;
       }
       
       nav ul {
         position: absolute;
-        top: 70px;  
+        top: 70px;
         right: 0;
         flex-direction: column;
         background-color: var(--primary-color);
@@ -421,8 +378,7 @@
       nav ul li {
         margin: 10px 0;
       }
-
-  
+      
       .about-content {
         flex-direction: column;
       }
@@ -456,11 +412,6 @@
 <body>
   <header>
     <div class="container header-content">
-      <div class="logo">
-        <div class="logo-img">IFIT</div>
-        <h1>IFIT Lab</h1>
-      </div>
-      
 
       <div class="menu-toggle" id="menu-toggle">
         <span></span>
@@ -468,6 +419,13 @@
         <span></span>
       </div>
       
+
+      <div class="logo">
+        <div class="logo-img">IFIT</div>
+        <h1>IFIT Lab</h1>
+      </div>
+      
+
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
@@ -774,7 +732,7 @@
   <a href="#home" class="scroll-to-top" id="scroll-btn">↑</a>
 
   <script>
-
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -789,6 +747,7 @@
       });
     });
     
+    // Show/hide scroll to top button
     window.addEventListener('scroll', function() {
       const scrollBtn = document.getElementById('scroll-btn');
       if (window.pageYOffset > 300) {
@@ -801,7 +760,6 @@
 
     const menuToggle = document.getElementById('menu-toggle');
     const navUl = document.querySelector('nav ul');
-
     menuToggle.addEventListener('click', () => {
       navUl.classList.toggle('active');
     });
