@@ -1,735 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFIT Lab - Intelligent Financial Innovation Technology Laboratory, National Taipei University</title>
-    <style>
-        :root {
-            --primary-color: #005f73;
-            --secondary-color: #0a9396;
-            --accent-color: #ee9b00;
-            --light-color: #e9ecef;
-            --dark-color: #212529;
-            --success-color: #38b000;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f8f9fa;
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo h1 {
-            font-size: 1.5rem;
-            margin-left: 10px;
-        }
-        
-        .logo-img {
-            height: 50px;
-            width: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 20px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-        
-        .hero {
-            background: linear-gradient(to right, rgba(0, 95, 115, 0.8), rgba(10, 147, 150, 0.8)), url('/api/placeholder/1200/600') no-repeat center center;
-            background-size: cover;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 70px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #d68a00;
-        }
-        
-        section {
-            padding: 4rem 0;
-        }
-        
-        section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .about-img {
-            width: 600px;
-            height: 400px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f5f5f5;
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .research-areas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .research-card {
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1.5rem;
-            transition: transform 0.3s;
-        }
-        
-        .research-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .research-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .research-icon {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        
-        .team-members {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .member-card {
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        
-        .member-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .member-img {
-            width: 300px;
-            height: 300px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f5f5f5;
-        }
-
-        .member-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-        
-        .member-info {
-            padding: 1.5rem;
-        }
-        
-        .member-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .member-info p {
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        
-        .publications-list {
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 2rem;
-        }
-        
-        .publication-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .publication-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .publication-title {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .publication-authors {
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-        
-        .publication-venue {
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .contact-card {
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1.5rem;
-        }
-        
-        .contact-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-icon {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-        
-        footer {
-            background-color: #707070;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .social-links {
-            display: flex;
-            margin: 1rem 0;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
-            margin: 0 10px;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-        }
-        
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .scroll-to-top.show {
-            opacity: 1;
-        }
-        
-        .scroll-to-top:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .hero {
-                height: auto;
-                padding: 3rem 0;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IFIT Lab - Intelligent Financial Innovation Technology Laboratory, National Taipei University</title>
+  <style>
+    :root {
+      --primary-color: #005f73;
+      --secondary-color: #0a9396;
+      --accent-color: #ee9b00;
+      --light-color: #e9ecef;
+      --dark-color: #212529;
+      --success-color: #38b000;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo h1 {
+      font-size: 1.5rem;
+      margin-left: 10px;
+    }
+    
+    .logo-img {
+      height: 50px;
+      width: 50px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 20px;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+    
+    .hero {
+      background: linear-gradient(to right, rgba(0, 95, 115, 0.8), rgba(10, 147, 150, 0.8)), url('/api/placeholder/1200/600') no-repeat center center;
+      background-size: cover;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      margin-top: 70px;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: #d68a00;
+    }
+    
+    section {
+      padding: 4rem 0;
+    }
+    
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+    
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .about-img {
+      width: 600px;
+      height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+    }
+    
+    .about-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .research-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .research-card {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .research-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .research-card h3 {
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .research-icon {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+    
+    .team-members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .member-card {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    
+    .member-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .member-img {
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+    }
+    
+    .member-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+    }
+    
+    .member-info h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .member-info p {
+      color: var(--secondary-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .publications-list {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    
+    .publication-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e9ecef;
+    }
+    
+    .publication-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .publication-title {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .publication-authors {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    
+    .publication-venue {
+      color: var(--secondary-color);
+      font-weight: 500;
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .contact-card {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+    }
+    
+    .contact-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-icon {
+      margin-right: 10px;
+      color: var(--accent-color);
+    }
+    
+    footer {
+      background-color: #707070;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .social-links {
+      display: flex;
+      margin: 1rem 0;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+      margin: 0 10px;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--accent-color);
+    }
+    
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .scroll-to-top.show {
+      opacity: 1;
+    }
+    
+    .scroll-to-top:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    /* ---------------- Media Queries ---------------- */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      /* 調整 about 圖片尺寸 */
+      .about-img {
+        width: 100%;
+        height: auto;
+      }
+      
+      /* Hero 區塊調整 */
+      .hero {
+        height: auto;
+        padding: 3rem 0;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      /* 調整團隊成員圖片 */
+      .member-img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      /* 針對超小螢幕，將導覽選單垂直排列 */
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+      }
+      
+      /* 調整 hero 文字大小 */
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <div class="logo-img">IFIT</div>
-                <h1>IFIT Lab</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#pi">PI</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <div class="logo-img">IFIT</div>
+        <h1>IFIT Lab</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#pi">PI</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h2>Intelligent Financial Innovation Technology Lab (IFIT Lab), NTPU</h2>
+      <p>Bridging artificial intelligence, financial technology, and sustainability for a better future</p>
+      <p>Est. 2021 | Principal Investigator: Prof. Min-Yuh Day, Ph.D.</p>
+      <a href="#research" class="btn">Explore Our Research</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About IFIT Lab</h2>
+      <div class="about-content">
+        <div class="about-img">
+          <img src="images/ifitntpu.png" alt="IFIT Lab">
         </div>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <h2>Intelligent Financial Innovation Technology Lab (IFIT Lab), NTPU</h2>
-            <p>Bridging artificial intelligence, financial technology, and sustainability for a better future</p>
-            <p>Est. 2021 | Principal Investigator: Prof. Min-Yuh Day, Ph.D.</p>
-            <a href="#research" class="btn">Explore Our Research</a>
+        <div class="about-text">
+          <p>The Intelligent Financial Innovation Technology (IFIT) Laboratory at National Taipei University is a cutting-edge research lab dedicated to exploring the intersection of artificial intelligence, financial technology, and environmental, social, and governance (ESG) principles.</p>
+          <p>Our mission is to develop innovative technological solutions for the financial sector that are not only efficient and effective but also sustainable and responsible. We aim to bridge the gap between academic research and industry applications, creating real-world impact through our work.</p>
+          <p>Founded in 2021 by Professor Min-Yuh Day, our lab brings together a diverse team of researchers, professors, and students working on various AI and FinTech projects with a particular focus on ESG data analytics, generative AI for sustainability reporting, and green financial technology innovations.</p>
+          <p>The lab operates under the Graduate Institute of Information Management (IM), National Taipei University (NTPU) and Fintech and Green Finance Center (FGFC), collaborating with industry partners and government agencies to advance sustainable finance through technological innovation.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About IFIT Lab</h2>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="images/ifitntpu.png" alt="IFIT Lab">
-                </div>
-                <div class="about-text">
-                    <p>The Intelligent Financial Innovation Technology (IFIT) Laboratory at National Taipei University is a cutting-edge research lab dedicated to exploring the intersection of artificial intelligence, financial technology, and environmental, social, and governance (ESG) principles.</p>
-                    <p>Our mission is to develop innovative technological solutions for the financial sector that are not only efficient and effective but also sustainable and responsible. We aim to bridge the gap between academic research and industry applications, creating real-world impact through our work.</p>
-                    <p>Founded in 2021 by Professor Min-Yuh Day, our lab brings together a diverse team of researchers, professors, and students working on various AI and FinTech projects with a particular focus on ESG data analytics, generative AI for sustainability reporting, and green financial technology innovations.</p>
-                    <p>The lab operates under the Graduate Institute of Information Management (IM), National Taipei University (NTPU) and Fintech and Green Finance Center (FGFC), collaborating with industry partners and government agencies to advance sustainable finance through technological innovation.</p>
-                </div>
-            </div>
+  <section id="research" style="background-color: #f1f3f5;">
+    <div class="container">
+      <h2>Research Areas</h2>
+      <div class="research-areas">
+        <div class="research-card">
+          <div class="research-icon">🤖</div>
+          <h3>Artificial Intelligence</h3>
+          <p>Developing AI solutions, including generative AI, deep reinforcement learning, and large language models for financial applications and ESG data analytics.</p>
         </div>
-    </section>
-
-
-    <section id="research" style="background-color: #f1f3f5;">
-        <div class="container">
-            <h2>Research Areas</h2>
-            <div class="research-areas">
-                <div class="research-card">
-                    <div class="research-icon">🤖</div>
-                    <h3>Artificial Intelligence</h3>
-                    <p>Developing AI solutions, including generative AI, deep reinforcement learning, and large language models for financial applications and ESG data analytics.</p>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">🌏</div>
-                    <h3>ESG and Green Financial Technology</h3>
-                    <p>Creating frameworks and innovative tools for ESG reporting, analysis, and sustainable finance with a focus on carbon market sentiment index and green finance data analytics.</p>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">📊</div>
-                    <h3>Big Data Analytics</h3>
-                    <p>Applying big data techniques for financial time series analysis, trading strategies optimization, and visualization of financial market data with heatmap approaches.</p>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">💬</div>
-                    <h3>Dialogue Systems</h3>
-                    <p>Building AI-powered conversational systems, including multimodal cross-lingual task-oriented dialogue systems for inclusive financial communication support.</p>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">📈</div>
-                    <h3>Trading Strategies</h3>
-                    <p>Researching algorithmic trading, technical analysis, and portfolio optimization using AI and deep reinforcement learning with applications to cryptocurrencies and traditional markets.</p>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">🔍</div>
-                    <h3>Knowledge Graphs</h3>
-                    <p>Developing financial knowledge graphs for cryptocurrency anti-money laundering and sustainable finance applications using text mining and information extraction.</p>
-                </div>
-            </div>
+        <div class="research-card">
+          <div class="research-icon">🌏</div>
+          <h3>ESG and Green Financial Technology</h3>
+          <p>Creating frameworks and innovative tools for ESG reporting, analysis, and sustainable finance with a focus on carbon market sentiment index and green finance data analytics.</p>
         </div>
-    </section>
-
-    <section id="pi">
-        <div class="container">
-            <h2>Principal Investigator (PI)</h2>
-            <div class="team-members">
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="images/myday_photo.png" alt="Professor Min-Yuh Day">
-                    </div>
-                    <div class="member-info">
-                        <h3><a href="http://web.ntpu.edu.tw/~myday/">Prof. Min-Yuh Day</a></h3>
-                        <p>Lab Director</p>
-                        <p>Principal Investigator (PI), Intelligent Financial Innovation Technology Lab (IFIT Lab)</p>
-                        <p>Professor, Graduate Institute of Information Management, National Taipei University</p>
-                        <p>Director, Fintech and Green Finance Center (FGFC)</p>
-                        <p>Division Director, Sustainable Development, Sustainability Office</p>
-                    </div>
-                </div>
-            </div>
+        <div class="research-card">
+          <div class="research-icon">📊</div>
+          <h3>Big Data Analytics</h3>
+          <p>Applying big data techniques for financial time series analysis, trading strategies optimization, and visualization of financial market data with heatmap approaches.</p>
         </div>
-    </section>
-
-
-    <section id="team">
-        <div class="container">
-            <h2>Our Team</h2>
-            <div class="team-members">
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="/api/placeholder/300/300" alt="Research member">
-                    </div>
-                    <div class="member-info">
-                        <h3>Wen-Hsin Hsiao</h3>
-                        <p>Researcher</p>
-                        <p>Metaverse AI Multimodal Cross-Language Task-Oriented Dialogue System</p>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="/api/placeholder/300/300" alt="Research member">
-                    </div>
-                    <div class="member-info">
-                        <h3>Bor-Jen Chen</h3>
-                        <p>Researcher</p>
-                        <p>Generative AI for ESG Report Generation</p>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="/api/placeholder/300/300" alt="Research member">
-                    </div>
-                    <div class="member-info">
-                        <h3>Cheng-Yun Wu</h3>
-                        <p>Researcher</p>
-                        <p>Multimodal Cross-lingual Task-Oriented Dialogue System for Inclusive Communication Support</p>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="/api/placeholder/300/300" alt="Research member">
-                    </div>
-                    <div class="member-info">
-                        <h3>Jun-Yu Wu</h3>
-                        <p>Researcher</p>
-                        <p>Generative AI in ESG Reporting</p>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="images/bob_photo.png" alt="Research member">
-                    </div>
-                    <div class="member-info">
-                        <h3>Hsin-Ting Lu</h3>
-                        <p>Researcher</p>
-                        <p>Agentic AI in Smart City</p>
-                    </div>
-                </div>                
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="/api/placeholder/300/300" alt="Research member">
-                    </div>
-                    <div class="member-info">
-                        <h3>Ting-Chi Wang</h3>
-                        <p>Researcher</p>
-                        <p>Developing Generative AI-driven ESG Report Generation System</p>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="/api/placeholder/300/300" alt="Research member">
-                    </div>
-                    <div class="member-info">
-                        <h3>Yu-Chun Cheng</h3>
-                        <p>Researcher</p>
-                        <p>Developing Generative AI-driven ESG Report Generation System</p>
-                    </div>
-                </div>
-
-            </div>
+        <div class="research-card">
+          <div class="research-icon">💬</div>
+          <h3>Dialogue Systems</h3>
+          <p>Building AI-powered conversational systems, including multimodal cross-lingual task-oriented dialogue systems for inclusive financial communication support.</p>
         </div>
-    </section>
-
-    <section id="publications" style="background-color: #f1f3f5;">
-        <div class="container">
-            <h2>Recent Publications</h2>
-            <div class="publications-list">
-                <div class="publication-item">
-                    <div class="publication-title">Portfolio Dynamic Trading Strategies Using Deep Reinforcement Learning</div>
-                    <div class="publication-authors">Day, M.Y., Yang, C.Y., & Ni, Y. (2024)</div>
-                    <div class="publication-venue">Soft Computing, Volume 28, August 2024, pp. 8715–8730</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">A comparison of bitcoin futures return and return volatility based on news sentiment contemporaneously or lead-lag</div>
-                    <div class="publication-authors">Kao, Y.S., Day, M.Y., & Chou, K.H. (2024)</div>
-                    <div class="publication-venue">The North American Journal of Economics and Finance, Volume 72, May 2024, 102159</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Establishing a novel deep learning model for detecting peri-implantitis</div>
-                    <div class="publication-authors">Lee, W.F., Day, M.Y., Fang, C.Y., Nataraj, V., Wen, S.C., Chang, W.J., & Teng, N.C. (2024)</div>
-                    <div class="publication-venue">Journal of Dental Sciences, Volume 19, Issue 2, April 2024, pp. 1165-1173</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Be greedy when others are fearful: Evidence from a two-decade assessment of the NDX 100 and S&P 500 indexes</div>
-                    <div class="publication-authors">Day, M.Y. & Ni, Y. (2023)</div>
-                    <div class="publication-venue">International Review of Financial Analysis, Volume 90, November 2023, 102856</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Do Bitcoin news information flow and return volatility fit the sequential information arrival hypothesis and the mixture of distribution hypothesis?</div>
-                    <div class="publication-authors">Chou, K.H., Day, M.Y., & Chiu, C.L. (2023)</div>
-                    <div class="publication-venue">International Review of Economics and Finance, Volume 88, November 2023, pp. 365-385</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Visualizing profitability: A heatmap approach to evaluate Bitcoin futures trading using VMA trading rules</div>
-                    <div class="publication-authors">Day, M.Y., Ni, Y., Hsu, C., & Huang, P. (2023)</div>
-                    <div class="publication-venue">Heliyon, 21 October 2023, e21376</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Do clean energy indices outperform using contrarian strategies based on contrarian trading rules?</div>
-                    <div class="publication-authors">Day, M.Y. & Ni, Y. (2023)</div>
-                    <div class="publication-venue">Energy, Volume 272, 1 June 2023, 127113</div>
-                </div>
-            </div>
+        <div class="research-card">
+          <div class="research-icon">📈</div>
+          <h3>Trading Strategies</h3>
+          <p>Researching algorithmic trading, technical analysis, and portfolio optimization using AI and deep reinforcement learning with applications to cryptocurrencies and traditional markets.</p>
         </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2>Research Projects</h2>
-            <div class="publications-list">
-                <div class="publication-item">
-                    <div class="publication-title">Digital Support, Unimpeded Communication: The Development, Support and Promotion of AI-assisted Communication Assistive Devices for Speech Impairment</div>
-                    <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
-                    <div class="publication-venue">NSTC 113-2425-H-305-003-, 2023-2026</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Multimodal Cross-lingual Task-Oriented Dialogue System for Inclusive Communication Support</div>
-                    <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
-                    <div class="publication-venue">NTPU 114-NTPU_ORDA-F-004, 2023-2025</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Metaverse AI Multimodal Cross-Language Task-Oriented Dialogue System</div>
-                    <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
-                    <div class="publication-venue">ATEC Group, Fintech and Green Finance Center, 2023-2026</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Development of a Deep Learning for Dental Implant Detection in Panoramic Radiographs</div>
-                    <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
-                    <div class="publication-venue">University System of Taipei Joint Research Program (NTPU, TMU), USTP-NTPU-TMU-114-02, 2025/01/01~2025/12/31</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Carbon Market Sentiment Index with AI Text Analytics</div>
-                    <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
-                    <div class="publication-venue">NTPU 113-NTPU_ORDA-F-003, 2023-2024</div>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-title">Generative AI-Driven ESG Report Generation Technology</div>
-                    <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
-                    <div class="publication-venue">Industrial Technology Research Institute (ITRI), 2024</div>
-                </div>
-
-            </div>
+        <div class="research-card">
+          <div class="research-icon">🔍</div>
+          <h3>Knowledge Graphs</h3>
+          <p>Developing financial knowledge graphs for cryptocurrency anti-money laundering and sustainable finance applications using text mining and information extraction.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <div class="contact-card">
-                    <h3><span class="contact-icon">📍</span> Address</h3>
-                    <p>IFIT Laboratory</p>
-                    <p>Graduate Institute of Information Management</p>
-                    <p>National Taipei University</p>
-                    <p>151, University Rd., San Shia District</p>
-                    <p>New Taipei City, 23741 Taiwan</p>
-                </div>
-                <div class="contact-card">
-                    <h3><span class="contact-icon">📧</span> Contact Info</h3>
-                    <p>Email: ifitlabntpu@gmail.com</p>
-                    <p>Phone: +886-2-8674-1111 ext. 66873</p>
-                    <p>IFIT NTPU: <a href="https://ifitntpu.github.io/">https://ifitntpu.github.io/</a></p>
-                    <p>AI FIT ESG: <a href="https://www.aifitesg.org/">https://www.aifitesg.org/</a></p>
-                </div>                
-            </div>
+  <section id="pi">
+    <div class="container">
+      <h2>Principal Investigator (PI)</h2>
+      <div class="team-members">
+        <div class="member-card">
+          <div class="member-img">
+            <img src="images/myday_photo.png" alt="Professor Min-Yuh Day">
+          </div>
+          <div class="member-info">
+            <h3><a href="http://web.ntpu.edu.tw/~myday/">Prof. Min-Yuh Day</a></h3>
+            <p>Lab Director</p>
+            <p>Principal Investigator (PI), Intelligent Financial Innovation Technology Lab (IFIT Lab)</p>
+            <p>Professor, Graduate Institute of Information Management, National Taipei University</p>
+            <p>Director, Fintech and Green Finance Center (FGFC)</p>
+            <p>Division Director, Sustainable Development, Sustainability Office</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container footer-content">
-            <p>Intelligent Financial Innovation Technology Laboratory (IFIT Lab), National Taipei University (NTPU)</p>
-            <div class="social-links">
-                <a href="https://ifitntpu.github.io/" title="GitHub">GitHub</a> <a href="https://www.aifitesg.org/" title="GitHub">Web</a>
-            </div>
-            <p><small>Last updated: March 9, 2025</small></p>
+  <section id="team">
+    <div class="container">
+      <h2>Our Team</h2>
+      <div class="team-members">
+        <div class="member-card">
+          <div class="member-img">
+            <img src="/api/placeholder/300/300" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Wen-Hsin Hsiao</h3>
+            <p>Researcher</p>
+            <p>Metaverse AI Multimodal Cross-Language Task-Oriented Dialogue System</p>
+          </div>
         </div>
-    </footer>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="/api/placeholder/300/300" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Bor-Jen Chen</h3>
+            <p>Researcher</p>
+            <p>Generative AI for ESG Report Generation</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="images/yun_photo.JPG" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Cheng-Yun Wu</h3>
+            <p>Researcher</p>
+            <p>Multimodal Cross-lingual Task-Oriented Dialogue System for Inclusive Communication Support</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="/api/placeholder/300/300" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Jun-Yu Wu</h3>
+            <p>Researcher</p>
+            <p>Generative AI in ESG Reporting</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="images/bob_photo.png" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Hsin-Ting Lu</h3>
+            <p>Researcher</p>
+            <p>Agentic AI in Smart City</p>
+          </div>
+        </div>                
+        <div class="member-card">
+          <div class="member-img">
+            <img src="/api/placeholder/300/300" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Ting-Chi Wang</h3>
+            <p>Researcher</p>
+            <p>Developing Generative AI-driven ESG Report Generation System</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="/api/placeholder/300/300" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Yu-Chun Cheng</h3>
+            <p>Researcher</p>
+            <p>Developing Generative AI-driven ESG Report Generation System</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="images/andy_photo.jpg" alt="Research member">
+          </div>
+          <div class="member-info">
+            <h3>Chen-Wen Ze</h3>
+            <p>Researcher</p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <a href="#home" class="scroll-to-top" id="scroll-btn">↑</a>
+  <section id="publications" style="background-color: #f1f3f5;">
+    <div class="container">
+      <h2>Recent Publications</h2>
+      <div class="publications-list">
+        <div class="publication-item">
+          <div class="publication-title">Portfolio Dynamic Trading Strategies Using Deep Reinforcement Learning</div>
+          <div class="publication-authors">Day, M.Y., Yang, C.Y., & Ni, Y. (2024)</div>
+          <div class="publication-venue">Soft Computing, Volume 28, August 2024, pp. 8715–8730</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">A comparison of bitcoin futures return and return volatility based on news sentiment contemporaneously or lead-lag</div>
+          <div class="publication-authors">Kao, Y.S., Day, M.Y., & Chou, K.H. (2024)</div>
+          <div class="publication-venue">The North American Journal of Economics and Finance, Volume 72, May 2024, 102159</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Establishing a novel deep learning model for detecting peri-implantitis</div>
+          <div class="publication-authors">Lee, W.F., Day, M.Y., Fang, C.Y., Nataraj, V., Wen, S.C., Chang, W.J., & Teng, N.C. (2024)</div>
+          <div class="publication-venue">Journal of Dental Sciences, Volume 19, Issue 2, April 2024, pp. 1165-1173</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Be greedy when others are fearful: Evidence from a two-decade assessment of the NDX 100 and S&P 500 indexes</div>
+          <div class="publication-authors">Day, M.Y. & Ni, Y. (2023)</div>
+          <div class="publication-venue">International Review of Financial Analysis, Volume 90, November 2023, 102856</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Do Bitcoin news information flow and return volatility fit the sequential information arrival hypothesis and the mixture of distribution hypothesis?</div>
+          <div class="publication-authors">Chou, K.H., Day, M.Y., & Chiu, C.L. (2023)</div>
+          <div class="publication-venue">International Review of Economics and Finance, Volume 88, November 2023, pp. 365-385</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Visualizing profitability: A heatmap approach to evaluate Bitcoin futures trading using VMA trading rules</div>
+          <div class="publication-authors">Day, M.Y., Ni, Y., Hsu, C., & Huang, P. (2023)</div>
+          <div class="publication-venue">Heliyon, 21 October 2023, e21376</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Do clean energy indices outperform using contrarian strategies based on contrarian trading rules?</div>
+          <div class="publication-authors">Day, M.Y. & Ni, Y. (2023)</div>
+          <div class="publication-venue">Energy, Volume 272, 1 June 2023, 127113</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Show/hide scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollBtn = document.getElementById('scroll-btn');
-            if (window.pageYOffset > 300) {
-                scrollBtn.classList.add('show');
-            } else {
-                scrollBtn.classList.remove('show');
-            }
-        });
-    </script>
+  <section id="projects">
+    <div class="container">
+      <h2>Research Projects</h2>
+      <div class="publications-list">
+        <div class="publication-item">
+          <div class="publication-title">Digital Support, Unimpeded Communication: The Development, Support and Promotion of AI-assisted Communication Assistive Devices for Speech Impairment</div>
+          <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
+          <div class="publication-venue">NSTC 113-2425-H-305-003-, 2023-2026</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Multimodal Cross-lingual Task-Oriented Dialogue System for Inclusive Communication Support</div>
+          <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
+          <div class="publication-venue">NTPU 114-NTPU_ORDA-F-004, 2023-2025</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Metaverse AI Multimodal Cross-Language Task-Oriented Dialogue System</div>
+          <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
+          <div class="publication-venue">ATEC Group, Fintech and Green Finance Center, 2023-2026</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Development of a Deep Learning for Dental Implant Detection in Panoramic Radiographs</div>
+          <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
+          <div class="publication-venue">University System of Taipei Joint Research Program (NTPU, TMU), USTP-NTPU-TMU-114-02, 2025/01/01~2025/12/31</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Carbon Market Sentiment Index with AI Text Analytics</div>
+          <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
+          <div class="publication-venue">NTPU 113-NTPU_ORDA-F-003, 2023-2024</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Generative AI-Driven ESG Report Generation Technology</div>
+          <div class="publication-authors">Principal Investigator: Min-Yuh Day</div>
+          <div class="publication-venue">Industrial Technology Research Institute (ITRI), 2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <div class="contact-card">
+          <h3><span class="contact-icon">📍</span> Address</h3>
+          <p>IFIT Laboratory</p>
+          <p>Graduate Institute of Information Management</p>
+          <p>National Taipei University</p>
+          <p>151, University Rd., San Shia District</p>
+          <p>New Taipei City, 23741 Taiwan</p>
+        </div>
+        <div class="contact-card">
+          <h3><span class="contact-icon">📧</span> Contact Info</h3>
+          <p>Email: ifitlabntpu@gmail.com</p>
+          <p>Phone: +886-2-8674-1111 ext. 66873</p>
+          <p>IFIT NTPU: <a href="https://ifitntpu.github.io/">https://ifitntpu.github.io/</a></p>
+          <p>AI FIT ESG: <a href="https://www.aifitesg.org/">https://www.aifitesg.org/</a></p>
+        </div>                
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>Intelligent Financial Innovation Technology Laboratory (IFIT Lab), National Taipei University (NTPU)</p>
+      <div class="social-links">
+        <a href="https://ifitntpu.github.io/" title="GitHub">GitHub</a> 
+        <a href="https://www.aifitesg.org/" title="GitHub">Web</a>
+      </div>
+      <p><small>Last updated: March 9, 2025</small></p>
+    </div>
+  </footer>
+
+  <a href="#home" class="scroll-to-top" id="scroll-btn">↑</a>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', function() {
+      const scrollBtn = document.getElementById('scroll-btn');
+      if (window.pageYOffset > 300) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 </html>
