@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- 1. viewport 設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IFIT Lab - Intelligent Financial Innovation Technology Laboratory, National Taipei University</title>
   <style>
@@ -33,6 +34,7 @@
       margin: 0 auto;
       padding: 0 15px;
     }
+    
     
     header {
       background-color: var(--primary-color);
@@ -73,6 +75,23 @@
       color: var(--primary-color);
     }
     
+   
+    .menu-toggle {
+      display: none; 
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 35px;
+      height: 25px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+    
     nav ul {
       display: flex;
       list-style: none;
@@ -95,6 +114,7 @@
       background-color: rgba(255,255,255,0.1);
     }
     
+
     .hero {
       background: linear-gradient(to right, rgba(0, 95, 115, 0.8), rgba(10, 147, 150, 0.8)), url('/api/placeholder/1200/600') no-repeat center center;
       background-size: cover;
@@ -136,6 +156,7 @@
       background-color: #d68a00;
     }
     
+
     section {
       padding: 4rem 0;
     }
@@ -373,62 +394,59 @@
       background-color: var(--secondary-color);
     }
     
-    /* ---------------- Media Queries ---------------- */
+   
     @media (max-width: 768px) {
       .header-content {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    
+      .menu-toggle {
+        display: flex;
       }
       
       nav ul {
-        margin-top: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        position: absolute;
+        top: 70px;  
+        right: 0;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        padding: 1rem;
+        display: none; 
       }
-      
+      nav ul.active {
+        display: flex; 
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+
+  
       .about-content {
         flex-direction: column;
       }
-      
-      /* 調整 about 圖片尺寸 */
       .about-img {
         width: 100%;
         height: auto;
       }
       
-      /* Hero 區塊調整 */
       .hero {
         height: auto;
         padding: 3rem 0;
       }
-      
       .hero h2 {
         font-size: 2rem;
-      }
-      
-      /* 調整團隊成員圖片 */
-      .member-img {
-        width: 100%;
-        height: auto;
       }
     }
     
     @media (max-width: 576px) {
-      /* 針對超小螢幕，將導覽選單垂直排列 */
       nav ul {
-        flex-direction: column;
-        align-items: center;
+        top: 60px;
       }
-      
-      nav ul li {
-        margin: 10px 0;
-      }
-      
-      /* 調整 hero 文字大小 */
       .hero h2 {
         font-size: 1.8rem;
       }
-      
       .hero p {
         font-size: 1rem;
       }
@@ -442,6 +460,14 @@
         <div class="logo-img">IFIT</div>
         <h1>IFIT Lab</h1>
       </div>
+      
+
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
@@ -748,7 +774,7 @@
   <a href="#home" class="scroll-to-top" id="scroll-btn">↑</a>
 
   <script>
-    // Smooth scrolling for navigation links
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -763,7 +789,6 @@
       });
     });
     
-    // Show/hide scroll to top button
     window.addEventListener('scroll', function() {
       const scrollBtn = document.getElementById('scroll-btn');
       if (window.pageYOffset > 300) {
@@ -771,6 +796,14 @@
       } else {
         scrollBtn.classList.remove('show');
       }
+    });
+
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const navUl = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', () => {
+      navUl.classList.toggle('active');
     });
   </script>
 </body>
