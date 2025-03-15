@@ -47,6 +47,8 @@
     }
     
     .header-content {
+   
+      position: relative;
       display: flex;
       justify-content: space-between; 
       align-items: center;
@@ -362,18 +364,18 @@
       .menu-toggle {
         display: flex;
       }
-      
+     
       nav ul {
         position: absolute;
         top: 70px;
-        right: 0;
+        left: 0;              
         flex-direction: column;
         background-color: var(--primary-color);
         padding: 1rem;
-        display: none; 
+        display: none;        
       }
       nav ul.active {
-        display: flex; 
+        display: flex;       
       }
       nav ul li {
         margin: 10px 0;
@@ -418,13 +420,11 @@
         <span></span>
         <span></span>
       </div>
-      
 
       <div class="logo">
         <div class="logo-img">IFIT</div>
         <h1>IFIT Lab</h1>
       </div>
-      
 
       <nav>
         <ul>
