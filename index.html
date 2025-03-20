@@ -220,9 +220,15 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       overflow: hidden;
       transition: transform 0.3s;
+      cursor: pointer;
     }
     .member-card:hover {
       transform: translateY(-5px);
+    }
+    .member-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .member-img {
             width: 300px;
@@ -552,16 +558,18 @@
             <p>Generative AI for ESG Report Generation</p>
           </div>
         </div>
-        <div class="member-card">
-          <div class="member-img">
-            <img src="images/yun_photo.JPG" alt="Research member">
+        <a href="https://yunwcy.github.io/" target="_blank" class="member-card-link">
+          <div class="member-card">
+            <div class="member-img">
+              <img src="images/yun_photo.JPG" alt="Research member">
+            </div>
+            <div class="member-info">
+              <h3>Cheng-Yun Wu</h3>
+              <p>Researcher</p>
+              <p>Multimodal Dialogue System for Chinese Taipei University Sports Federation</p>
+            </div>
           </div>
-          <div class="member-info">
-            <h3>Cheng-Yun Wu</h3>
-            <p>Researcher</p>
-            <p>Multimodal Dialogue System for Chinese Taipei University Sports Federation</p>
-          </div>
-        </div>
+        </a>
         <div class="member-card">
           <div class="member-img">
             <img src="images/jeremy_photo.jpg" alt="Research member">
